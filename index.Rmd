@@ -21,6 +21,7 @@ purple marker.  A legend is also provided showing the Yonge and University
 line stations.
 ```{r toronto_leaflet_map}
 library(leaflet)
+library(webshot)
 
 yonge_subway_stations <- data.frame(lat =c(43.6491,43.6525,43.656389,43.661389, 43.645556),
                               lng = c(-79.3781,-79.379167,-79.38033,-79.383056,-79.380556))
@@ -29,7 +30,7 @@ uni_subway_stations <- data.frame(lat = c(43.647778,43.650833,43.654722,43.66,43
                           lng = c(-79.384722,-79.386667,-79.388333,-79.390556,-79.380556))
 
 
-thumbs_up = makeIcon(iconUrl="https://www.smileysapp.com/emojis/thumbs-up-emoji.png",60,60)
+thumbs_up = makeIcon(iconUrl="thumbs-up-emoji.png",60,60)
 
 toronto_map <- leaflet() %>% addTiles() %>%
   addMarkers(lat=43.6532, lng=-79.3832, 
