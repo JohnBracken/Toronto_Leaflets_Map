@@ -35,13 +35,7 @@ thumbs_up <- makeIcon("Thumbs_up.png", iconWidth = 60,iconHeight=60,
 
 toronto_map <- leaflet() %>% addTiles() %>%
   addMarkers(lat=43.6532, lng=-79.3832, 
-             icon = thumbs_up, label = "Toronto (best city around)",
-             labelOptions=labelOptions(noHide=T, direction = "left", offset = c(50,0),
-                          textsize="25px",
-             style = list("color" = "magenta",
-                          "font-family"="serif",
-                          "font-style"="italic",
-                          "border-color" = "rgba(1,1,1,0.1)"))) %>%
+             icon = thumbs_up) %>%
   addCircleMarkers(yonge_subway_stations$lng, yonge_subway_stations$lat, color = 'red') %>%
   addCircleMarkers(uni_subway_stations$lng,uni_subway_stations$lat, color = 'blue') %>%
   addLegend(labels = c("Yonge line", "University line"), colors = c("red", "blue"))
