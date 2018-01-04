@@ -30,7 +30,8 @@ uni_subway_stations <- data.frame(lat = c(43.647778,43.650833,43.654722,43.66,43
                           lng = c(-79.384722,-79.386667,-79.388333,-79.390556,-79.380556))
 
 
-thumbs_up <- makeIcon("Thumbs_up.png",60,60)
+thumbs_up <- makeIcon("Thumbs_up.png", iconWidth = 60,iconHeight=60,
+                      iconAnchorX = 30, iconAnchorY = 30)
 
 toronto_map <- leaflet() %>% addTiles() %>%
   addMarkers(lat=43.6532, lng=-79.3832, 
