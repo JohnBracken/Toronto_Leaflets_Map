@@ -1,0 +1,53 @@
+---
+title: "Coursera Leaflet Map Assignment"
+author: "JB"
+date: "January 4, 2018"
+output: html_document
+---
+
+
+
+## Map of Toronto
+
+This assignment shows a map of downtown Toronto created with the R leaflet package.
+A thumbs up icon was created from a .png file and displayed at city hall.
+A label is shown indicating Toronto. Also, some circle markers
+were added to show subway station locations in the area. The stations on the Yonge 
+and University subway lines are shown as red and blue circle markers, respectively.  
+Union Station connects both lines, so the overlap of the circle markers creates a 
+purple marker.  A legend is also provided showing the Yonge and University 
+line stations.
+
+```r
+library(leaflet)
+
+yonge_subway_stations <- data.frame(lat =c(43.6491,43.6525,43.656389,43.661389, 43.645556),
+                              lng = c(-79.3781,-79.379167,-79.38033,-79.383056,-79.380556))
+
+uni_subway_stations <- data.frame(lat = c(43.647778,43.650833,43.654722,43.66,43.645556),
+                          lng = c(-79.384722,-79.386667,-79.388333,-79.390556,-79.380556))
+
+
+thumbs_up = makeIcon(iconUrl="https://www.smileysapp.com/emojis/thumbs-up-emoji.png",60,60)
+
+toronto_map <- leaflet() %>% addTiles() %>%
+  addMarkers(lat=43.6532, lng=-79.3832, 
+             popup ="Toronto (best city around)", 
+             icon =thumbs_up, label = "Toronto (best city around)",
+             labelOptions=labelOptions(noHide=T, direction = "left", offset = c(50,0),
+                          textsize="25px",
+             style = list("color" = "magenta",
+                          "font-family"="serif",
+                          "font-style"="italic",
+                          "border-color" = "rgba(1,1,1,0.1)"))) %>%
+  addCircleMarkers(yonge_subway_stations$lng, yonge_subway_stations$lat, color = 'red') %>%
+  addCircleMarkers(uni_subway_stations$lng,uni_subway_stations$lat, color = 'blue') %>%
+  addLegend(labels = c("Yonge line", "University line"), colors = c("red", "blue"))
+
+toronto_map
+```
+
+```
+## Error in loadNamespace(name): there is no package called 'webshot'
+```
+
